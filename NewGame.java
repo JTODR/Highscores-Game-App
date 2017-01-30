@@ -40,6 +40,7 @@ public class NewGame extends AppCompatActivity {
         my_relative_layout = (RelativeLayout)findViewById(R.id.my_relative_layout);
         speedText = (TextView)findViewById(R.id.speedText);
         usernameTitleText = (TextView)findViewById(R.id.usernameTitleText);
+
         dbHandler = new DBHandler(this, null, null, 1);
 
         Intent intent = getIntent();
@@ -47,7 +48,6 @@ public class NewGame extends AppCompatActivity {
         usernameTitleText.setText(saved_username);
 
         runGame();
-
     }
 
 
@@ -65,44 +65,20 @@ public class NewGame extends AppCompatActivity {
                 scoreText.setText("Final score: " + score);
                 String retreive_username = usernameTitleText.getText().toString();
                 retreive_username = retreive_username + " - " + String.valueOf(score);
+
+
                 //********************* DB STUFF *********************
                 HighscoreList highscoreList = new HighscoreList(retreive_username/*, String.valueOf(score)*/);
                 dbHandler.addHighscore(highscoreList);
                 //****************************************************
 
-                //double double_score = score;
+
                 double remainder = score % TIME;
                 double speed = score / TIME;
                 speed = speed + (remainder / TIME);
                 speedText.setText(String.valueOf(speed) + " clicks/ sec");
             }
         }
-    }
-
-    //restart the game when the restart button is clicked
-    public void restartGame(View view){
-        restart_flag = true;
-        progressStatus = 10;
-        new CountDownTimer(3000, 1000){
-            public void onTick(long millisecUntilFinished){
-                timer.setText("Ready?");
-            }
-            public void onFinish(){
-                //timer.setText("Go!");
-                score = 1;
-                speedText.setText("");
-                restart_flag = false;
-                runGame();
-            }
-
-        }.start();
-
-    }
-
-    //Go to highscores
-    public void viewHighscores(View view){
-        Intent highscores_intent = new Intent(this, Highscores.class);
-        startActivity(highscores_intent);
     }
 
     //The running of the game is here
@@ -134,11 +110,35 @@ public class NewGame extends AppCompatActivity {
 
     }
 
-    /*public void addButtonClicked(View view){
-        HighscoreList highscoreList = new HighscoreList(saved_username, score);
-        dbHandler.addHighscore(highscoreList);
-        //printDatabase();
-    }*/
+    //Return to main menu
+    public void goToMainMenu(View view){
+        Intent menu_intent = new Intent(this, MainActivity.class);
+        startActivity(menu_intent);
+    }
 
+    //Go to highscores
+    public void viewHighscores(View view){
+        Intent highscores_intent = new Intent(this, Highscores.class);
+        startActivity(highscores_intent);
+    }
 
+    //restart the game when the restart button is clicked
+    public void restartGame(View view){
+        restart_flag = true;
+        progressStatus = 10;
+        new CountDownTimer(3000, 1000){
+            public void onTick(long millisecUntilFinished){
+                timer.setText("Ready?");
+            }
+            public void onFinish(){
+                //timer.setText("Go!");
+                score = 1;
+                speedText.setText("");
+                restart_flag = false;
+                runGame();
+            }
+
+        }.start();
+
+    }
 }
