@@ -15,7 +15,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public static final String COLUMN_USERNAME = "username";
     //public static final String COLUMN_RANK = "rank";
-    public static final String COLUMN_SCORE = "score";
+    //public static final String COLUMN_SCORE = "score";
 
     //We need to pass database information along to superclass
     public DBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -27,7 +27,7 @@ public class DBHandler extends SQLiteOpenHelper {
         String query = "CREATE TABLE " + TABLE_HIGHSCORES + "(" +
                 //COLUMN_RANK + " INTEGER PRIMARY KEY " +
                 COLUMN_USERNAME + " TEXT PRIMARY KEY " +
-                COLUMN_SCORE + " INTEGER " +
+                //COLUMN_SCORE + " INTEGER " +
                 ");";
         db.execSQL(query);
     }
