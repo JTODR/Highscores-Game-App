@@ -36,8 +36,6 @@ public class Highscores extends AppCompatActivity {
 
     public void printDatabase() {
         String dbString = dbHandler.databaseToString();
-        //String scoreString = dbHandler.scoreToString();
-        //String printString = dbString + " " + scoreString;
         testScoreText.setText(dbString);
     }
 
@@ -46,8 +44,8 @@ public class Highscores extends AppCompatActivity {
         printDatabase();
     }
 
-    /*public void startNewGameFromHighscores(View view){
+    public void startNewGameFromHighscores(View view){
         Intent new_game_intent = new Intent(this, CountdownForNewGame.class);
         startActivity(new_game_intent);
-    }*/
+    }
 }
