@@ -11,7 +11,7 @@
     tools:context="com.joeysapp.joseph.highscoresgame.CountdownForNewGame">
 
     <EditText
-        android:layout_width="250dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
@@ -20,9 +20,19 @@
         android:hint="Username"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="12dp"
         android:textAlignment="center"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Start Game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:id="@+id/startGameButton"
+        android:onClick="StartGameButton"
+        android:layout_below="@+id/username"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -32,17 +42,38 @@
         android:id="@+id/countdownText"
         android:textSize="54sp"
         android:textStyle="normal|bold"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/startGameButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="128dp" />
+        android:layout_marginTop="31dp"
+        android:textColor="@android:color/holo_red_dark" />
 
     <Button
-        android:text="Start Game"
+        android:text="Main Menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
-        android:id="@+id/startGameButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/mainMenuReturnButton"
+        android:onClick="returnToMainMenu"/>
+
+    <TextView
+        android:text="Click the red button as fast as you can!"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:id="@+id/promptText"
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layout_above="@+id/mainMenuReturnButton"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/username"
         android:layout_centerHorizontal="true"
-        android:onClick="StartGameButton"/>
+        android:id="@+id/timerSetText" />
 </RelativeLayout>
