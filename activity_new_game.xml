@@ -82,7 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/usernameTitleText" />
+        android:id="@+id/usernameTitleText"
+        android:textSize="18sp" />
 
     <Button
         android:text="Highscores"
@@ -102,6 +103,31 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/progressBar"
         android:layout_marginStart="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/clickerButton"
+        android:layout_alignStart="@+id/progressBar"
+        android:id="@+id/showScoresText" />
+
+    <Button
+        android:text="Main Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainMenuButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/startButton"
+        android:onClick="goToMainMenu"/>
+
+    <TextView
+        android:text="Highscore:      "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/highscoreText"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/mainMenuButton"
+        android:textSize="18sp" />
 
 
 </RelativeLayout>
