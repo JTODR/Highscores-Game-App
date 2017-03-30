@@ -1,2 +1,6 @@
 # Highscores-Game-App
-App is working on my AVD but not on my phone... Storing it here for the time being while I mess about with it.
+
+A simple clicker game that I made at the end of 2016.
+
+You click the red button as much as you can in 10, 20, 30 or 60 seconds. The highscores are added to the phone's database.
+SQLite database used.
