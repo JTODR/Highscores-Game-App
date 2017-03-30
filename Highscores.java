@@ -4,15 +4,19 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class Highscores extends AppCompatActivity {
 
+    public final static String TIMER_KEY_RESTART = "keyhighscorestimer";
+
     DBHandler dbHandler;
-    private TextView testScoreText;
-    private Button deleteHighscoresButton;
-    private Button newGameButton;
+    Button deleteHighscoresButton;
+    Button newGameButton;
 
 
     @Override
@@ -20,7 +24,6 @@ public class Highscores extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscores);
 
-        testScoreText = (TextView) findViewById(R.id.testScoreText);
         deleteHighscoresButton = (Button)findViewById(R.id.deleteHighscoresButton);
         newGameButton = (Button)findViewById(R.id.newGameButton);
 
@@ -35,17 +38,31 @@ public class Highscores extends AppCompatActivity {
     }
 
     public void printDatabase() {
-        String dbString = dbHandler.databaseToString();
-        testScoreText.setText(dbString);
+        String dbString10 = dbHandler.databaseToString10();
+        dbString10 = "10 sec:       " + dbString10;
+
+        String dbString20 = dbHandler.databaseToString20();
+        dbString20 = "20 sec:       " + dbString20;
+
+        String dbString30 = dbHandler.databaseToString30();
+        dbString30 = "30 sec:       " + dbString30;
+
+        String dbString60 = dbHandler.databaseToString60();
+        dbString60 = "60 sec:       " + dbString60;
+
+        //ListView
+        String[] highscores_list= {dbString10, dbString20, dbString30, dbString60};
+        ListAdapter joeysAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, highscores_list);
+        ListView joeysListView = (ListView) findViewById(R.id.joeysListView);
+        joeysListView.setAdapter(joeysAdapter);
     }
 
     public void deleteBtnClicked(View view){
-        dbHandler.deleteHighscores();
+        dbHandler.deleteHighscores10();
+        dbHandler.deleteHighscores20();
+        dbHandler.deleteHighscores30();
+        dbHandler.deleteHighscores60();
         printDatabase();
     }
 
-    public void startNewGameFromHighscores(View view){
-        Intent new_game_intent = new Intent(this, CountdownForNewGame.class);
-        startActivity(new_game_intent);
-    }
 }
