@@ -10,36 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.joeysapp.joseph.highscoresgame.MainActivity">
 
-    <Button
-        android:text="New Game"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/newGameButton"
-        android:layout_above="@+id/highscoresButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
-        android:onClick="startNewGame"/>
-
-    <TextView
-        android:text="Main Menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/newGameButton"
-        android:layout_margin="20dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView2"
-        android:textSize="20sp" />
-
-
-    <Button
-        android:text="High Scores"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/highscoresButton"
-        android:onClick="seeHighscores"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="135dp" />
 
     <TextView
         android:text="Clicker Game"
@@ -52,4 +22,46 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp" />
+
+    <Button
+        android:text="Settings"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/settingsButton"
+        android:onClick="openSettings"
+        android:layout_marginTop="70dp"
+        android:layout_below="@+id/newGameButton"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Main Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="20sp"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/gameNameText"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Highscores"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/highscoresButton"
+        android:onClick="seeHighscores"
+        android:layout_marginTop="57dp"
+        android:layout_alignTop="@+id/newGameButton"
+        android:layout_alignStart="@+id/settingsButton" />
+
+    <Button
+        android:text="New Game"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/newGameButton"
+        android:onClick="startNewGame"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/highscoresButton" />
 </RelativeLayout>
